@@ -1,0 +1,18 @@
+{
+  "assets/css/tailwind.css": {
+    "file": "css/tailwindcss.KbHH0MTm.css",
+    "src": "assets/css/tailwind.css",
+    "isEntry": true
+  },
+  "assets/js/app.js": {
+    "file": "js/app.CguMleJk.js",
+    "name": "app",
+    "src": "assets/js/app.js",
+    "isEntry": true
+  },
+  "assets/scss/app.scss": {
+    "file": "css/styles.Jt5FiggE.css",
+    "src": "assets/scss/app.scss",
+    "isEntry": true
+  }
+}
