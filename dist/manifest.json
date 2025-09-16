@@ -1,17 +1,17 @@
 {
   "assets/css/tailwind.css": {
-    "file": "css/tailwindcss.KbHH0MTm.css",
+    "file": "https://cdn.jsdelivr.net/gh/AhmedEls/yp-mec-theme@alpha/dist/css/tailwindcss.BpM1raCE.css",
     "src": "assets/css/tailwind.css",
     "isEntry": true
   },
   "assets/js/app.js": {
-    "file": "js/app.CguMleJk.js",
+    "file": "https://cdn.jsdelivr.net/gh/AhmedEls/yp-mec-theme@alpha/dist/js/app.Ccrei-dH.js",
     "name": "app",
     "src": "assets/js/app.js",
     "isEntry": true
   },
   "assets/scss/app.scss": {
-    "file": "css/styles.Jt5FiggE.css",
+    "file": "https://cdn.jsdelivr.net/gh/AhmedEls/yp-mec-theme@alpha/dist/css/styles.D0GEUTla.css",
     "src": "assets/scss/app.scss",
     "isEntry": true
   }

@@ -49,21 +49,6 @@ function theme_gsap_script()
     // wp_enqueue_script('gsap-js2', get_stylesheet_directory_uri() . '/assets/js/app.js', array('gsap-js'), false, true);
     // Tilt.js - with gsap.js passed as a dependency
     wp_enqueue_script('tilt-js', "https://cdn.jsdelivr.net/npm/tilt.js@1.2.1/dest/tilt.jquery.min.js", array(), false, true);
-    // motion plugin
-    wp_enqueue_script(
-        'motion-script',
-        get_stylesheet_directory_uri() . '/assets/js/motion.js',
-        [],
-        null,
-        true
-    );
-    // Add type="module" to motion.js only
-    add_filter('script_loader_tag', function ($tag, $handle, $src) {
-        if ($handle === 'motion-script') {
-            return '<script type="module" src="' . esc_url($src) . '" defer></script>';
-        }
-        return $tag;
-    }, 10, 3);
 }
 add_action('wp_enqueue_scripts', 'theme_gsap_script');
 
@@ -80,19 +65,35 @@ function theme_enqueue_assets()
     $css = $manifest['assets/scss/app.scss']['file'] ?? '';
     $tailwind = $manifest['assets/css/tailwind.css']['file'] ?? '';
 
+    $is_cdn = strpos($js, 'https://') === 0 || strpos($css, 'https://') === 0;
+
     // URL base for enqueue (must be URI, not filesystem path)
-    $base_uri = get_stylesheet_directory_uri() . '/dist/';
+    $base_uri =  ""; // get_stylesheet_directory_uri() . '/dist/';
 
-    if ($css) {
-        wp_enqueue_style('theme-style', $base_uri . $css, [], null);
+    // If CDN URLs, use them directly; otherwise use local paths
+    if ($is_cdn) {
+        // Files already contain full CDN URLs, use them directly
+        $css_url = $css;
+        $tailwind_url = $tailwind;
+        $js_url = $js;
+    } else {
+        // Files contain relative paths, prepend local base URI
+        $base_uri = get_stylesheet_directory_uri() . '/dist/';
+        $css_url = $base_uri . $css;
+        $tailwind_url = $base_uri . $tailwind;
+        $js_url = $base_uri . $js;
     }
 
-    if ($tailwind) {
-        wp_enqueue_style('theme-tailwind', $base_uri . $tailwind, [], null);
+    if ($css_url) {
+        wp_enqueue_style('theme-style', $css_url, [], null);
     }
 
-    if ($js) {
-        wp_enqueue_script('theme-script', $base_uri . $js, [], null, true);
+    if ($tailwind_url) {
+        wp_enqueue_style('theme-tailwind', $tailwind_url, [], null);
+    }
+
+    if ($js_url) {
+        wp_enqueue_script('theme-script', $js_url, [], null, true);
     }
 
     add_filter('script_loader_tag', function ($tag, $handle, $src) {
