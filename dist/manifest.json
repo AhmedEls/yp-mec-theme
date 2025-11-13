@@ -5,13 +5,13 @@
     "isEntry": true
   },
   "assets/js/app.js": {
-    "file": "https://cdn.jsdelivr.net/gh/AhmedEls/yp-mec-theme@alpha/dist/js/app.BRouMQ8K.js",
+    "file": "https://cdn.jsdelivr.net/gh/AhmedEls/yp-mec-theme@alpha/dist/js/app.DhhANBqO.js",
     "name": "app",
     "src": "assets/js/app.js",
     "isEntry": true
   },
   "assets/scss/app.scss": {
-    "file": "https://cdn.jsdelivr.net/gh/AhmedEls/yp-mec-theme@alpha/dist/css/styles.BXmqOi7f.css",
+    "file": "https://cdn.jsdelivr.net/gh/AhmedEls/yp-mec-theme@alpha/dist/css/styles.g79agNmQ.css",
     "src": "assets/scss/app.scss",
     "isEntry": true
   }
